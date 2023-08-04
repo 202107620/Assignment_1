@@ -1,0 +1,1 @@
+# pop-objects-from-stack
