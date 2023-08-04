@@ -1,0 +1,85 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class PlaylistOperations {
+    public static void main(String[] args) {
+        List<String> playlist = new ArrayList<>();
+
+        // Add a song to the beginning of the list
+        addSongToBeginning(playlist, "Song1");
+        addSongToBeginning(playlist, "Song2");
+        addSongToBeginning(playlist, "Song3");
+
+        // Add a song to the end of the list
+        addSongToEnd(playlist, "Song4");
+        addSongToEnd(playlist, "Song5");
+        addSongToEnd(playlist, "Song6");
+
+        // Print the list of songs
+        System.out.println("Playlist:");
+        printPlaylist(playlist);
+
+        // Remove a song from the beginning of the list
+        removeSongFromBeginning(playlist);
+
+        // Remove a song from the end of the list
+        removeSongFromEnd(playlist);
+
+        // Print the shuffled playlist
+        System.out.println("\nShuffled Playlist:");
+        shufflePlaylist(playlist);
+        printPlaylist(playlist);
+    }
+
+    public static void addSongToBeginning(List<String> playlist, String song) {
+        playlist.add(0, song);
+    }
+
+    public static void addSongToEnd(List<String> playlist, String song) {
+        playlist.add(song);
+    }
+
+    public static void removeSongFromBeginning(List<String> playlist) {
+        if (!playlist.isEmpty()) {
+            playlist.remove(0);
+        } else {
+            System.out.println("The playlist is already empty. Cannot remove from the beginning.");
+        }
+    }
+
+    public static void removeSongFromEnd(List<String> playlist) {
+        if (!playlist.isEmpty()) {
+            playlist.remove(playlist.size() - 1);
+        } else {
+            System.out.println("The playlist is already empty. Cannot remove from the end.");
+        }
+    }
+
+    public static void shufflePlaylist(List<String> playlist) {
+        Collections.shuffle(playlist);
+    }
+
+    public static void printPlaylist(List<String> playlist) {
+        for (String song : playlist) {
+            System.out.println(song);
+        }
+    }
+}
+
+Output of programme-
+Playlist:
+Song3
+Song2
+Song1
+Song4
+Song5
+Song6
+
+Shuffled Playlist:
+Song4
+Song5
+Song2
+Song1
+Song6
+Song3
