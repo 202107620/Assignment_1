@@ -1,0 +1,97 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
+public class BookListOperations {
+    public static void main(String[] args) {
+        List<String> bookList = new ArrayList<>();
+
+        // Add a book to the beginning of the list
+        addBookToBeginning(bookList, "Book1");
+        addBookToBeginning(bookList, "Book2");
+        addBookToBeginning(bookList, "Book3");
+
+        // Add a book to the end of the list
+        addBookToEnd(bookList, "Book4");
+        addBookToEnd(bookList, "Book5");
+        addBookToEnd(bookList, "Book6");
+
+        // Print the list of books
+        System.out.println("List of books:");
+        printBookList(bookList);
+
+        // Remove a book from the beginning of the list
+        removeBookFromBeginning(bookList);
+
+        // Remove a book from the end of the list
+        removeBookFromEnd(bookList);
+
+        // Print the list of books in reverse order
+        System.out.println("\nList of books in reverse order:");
+        printBookListReverse(bookList);
+    }
+
+    public static void addBookToBeginning(List<String> bookList, String book) {
+        bookList.add(0, book);
+    }
+
+    public static void addBookToEnd(List<String> bookList, String book) {
+        bookList.add(book);
+    }
+
+    public static void removeBookFromBeginning(List<String> bookList) {
+        if (!bookList.isEmpty()) {
+            bookList.remove(0);
+        } else {
+            System.out.println("The book list is empty. Cannot remove from the beginning.");
+        }
+    }
+
+    public static void removeBookFromEnd(List<String> bookList) {
+        if (!bookList.isEmpty()) {
+            bookList.remove(bookList.size() - 1);
+        } else {
+            System.out.println("The book list is empty. Cannot remove from the end.");
+        }
+    }
+
+    public static void printBookList(List<String> bookList) {
+        for (String book : bookList) {
+            System.out.println(book);
+        }
+    }
+
+    public static void printBookListReverse(List<String> bookList) {
+        Collections.reverse(bookList);
+        printBookList(bookList);
+    }
+}
+results:
+adding books to the list:
+List of books:
+Book3
+Book2
+Book1
+Book4
+Book5
+Book6
+
+2.Removing a book from the beginning of the list:
+List of books:
+Book2
+Book1
+Book4
+Book5
+Book6
+3.Removing a book from the end of the list:
+List of books:
+Book2
+Book1
+Book4
+Book5
+4.Printing the list of books in reverse order:
+List of books in reverse order:
+Book5
+Book4
+Book1
+Book2
