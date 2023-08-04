@@ -1,0 +1,63 @@
+import java.util.Stack;
+
+public class WebPageStack {
+    public static void main(String[] args) {
+        Stack<String> webPageStack = new Stack<>();
+
+        // Add a web page to the stack
+        addWebPage(webPageStack, "www.example.com");
+        addWebPage(webPageStack, "www.google.com");
+        addWebPage(webPageStack, "www.wikipedia.org");
+
+        // Print the stack of web pages
+        System.out.println("Stack of web pages:");
+        printWebPageStack(webPageStack);
+
+        // Remove the most recent web page from the stack
+        removeMostRecentWebPage(webPageStack);
+
+        // Print the most recent web page without removing it from the stack
+        System.out.println("\nMost recent web page: " + peekMostRecentWebPage(webPageStack));
+
+        // Check if the stack is empty
+        System.out.println("Is the stack empty? " + isStackEmpty(webPageStack));
+    }
+
+    public static void addWebPage(Stack<String> webPageStack, String webPage) {
+        webPageStack.push(webPage);
+    }
+
+    public static void removeMostRecentWebPage(Stack<String> webPageStack) {
+        if (!webPageStack.isEmpty()) {
+            webPageStack.pop();
+        } else {
+            System.out.println("The web page stack is already empty. Cannot remove.");
+        }
+    }
+
+    public static String peekMostRecentWebPage(Stack<String> webPageStack) {
+        if (!webPageStack.isEmpty()) {
+            return webPageStack.peek();
+        } else {
+            System.out.println("The web page stack is empty. No recent web page to show.");
+            return null;
+        }
+    }
+
+    public static boolean isStackEmpty(Stack<String> webPageStack) {
+        return webPageStack.isEmpty();
+    }
+
+    public static void printWebPageStack(Stack<String> webPageStack) {
+        for (String webPage : webPageStack) {
+            System.out.println(webPage);
+        }
+    }
+result of this code-
+Stack of web pages:
+www.example.com
+www.google.com
+www.wikipedia.org
+
+Most recent web page: www.google.com
+Is the stack empty? false
