@@ -1,0 +1,66 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class OrderQueue {
+    public static void main(String[] args) {
+        Queue<String> orderQueue = new LinkedList<>();
+
+        // Add an order to the queue
+        addOrder(orderQueue, "Order1");
+        addOrder(orderQueue, "Order2");
+        addOrder(orderQueue, "Order3");
+
+        // Print the queue of orders
+        System.out.println("Queue of orders:");
+        printOrderQueue(orderQueue);
+
+        // Remove the next order from the queue
+        removeNextOrder(orderQueue);
+
+        // Print the next order without removing it from the queue
+        System.out.println("\nNext order: " + peekNextOrder(orderQueue));
+
+        // Check if the queue is empty
+        System.out.println("Is the queue empty? " + isQueueEmpty(orderQueue));
+    }
+
+    public static void addOrder(Queue<String> orderQueue, String order) {
+        orderQueue.add(order);
+    }
+
+    public static void removeNextOrder(Queue<String> orderQueue) {
+        if (!orderQueue.isEmpty()) {
+            orderQueue.poll();
+        } else {
+            System.out.println("The order queue is already empty. Cannot remove.");
+        }
+    }
+
+    public static String peekNextOrder(Queue<String> orderQueue) {
+        if (!orderQueue.isEmpty()) {
+            return orderQueue.peek();
+        } else {
+            System.out.println("The order queue is empty. No next order to show.");
+            return null;
+        }
+    }
+
+    public static boolean isQueueEmpty(Queue<String> orderQueue) {
+        return orderQueue.isEmpty();
+    }
+
+    public static void printOrderQueue(Queue<String> orderQueue) {
+        for (String order : orderQueue) {
+            System.out.println(order);
+        }
+    }
+}
+
+output of this programm is-
+Queue of orders:
+Order1
+Order2
+Order3
+
+Next order: Order2
+Is the queue empty? false
